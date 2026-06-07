@@ -45,8 +45,8 @@ jobs:
 
       - name: Find crypto dlls
         run: |
-          Get-ChildItem -Path . -Recurse -Filter "*crypto*" | Select-Object FullName
-          Get-ChildItem -Path . -Recurse -Filter "*ssl*" | Select-Object FullName
+          Get-ChildItem -Path . -Recurse -Filter "*.dll" |
+            Select-Object FullName
 
       - name: Get version
         id: get_version
