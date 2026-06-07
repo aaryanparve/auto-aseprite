@@ -43,6 +43,11 @@ jobs:
           cmake --build . --config MinSizeRel --target aseprite
           copy "C:/Windows/System32/libcrypto-3-x64.dll" ./bin
 
+      - name: Find crypto dlls
+        run: |
+          Get-ChildItem -Path . -Recurse -Filter "*crypto*" | Select-Object FullName
+          Get-ChildItem -Path . -Recurse -Filter "*ssl*" | Select-Object FullName
+
       - name: Get version
         id: get_version
         run: |
